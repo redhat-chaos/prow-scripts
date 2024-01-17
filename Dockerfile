@@ -1,6 +1,6 @@
 # Dockerfile for krkn-hub in prow
 
-FROM registry.ci.openshift.org/chaos/krkn:latest as krkn
+FROM quay.io/krkn-chaos/krkn:latest
 
 LABEL maintainer="Red Hat Chaos Engineering Team"
 
