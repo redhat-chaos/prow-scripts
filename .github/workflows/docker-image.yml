@@ -1,0 +1,27 @@
+name: Prow Scripts Docker Image CI
+on:
+  workflow_dispatch:
+    inputs:
+      test_list:
+        description: Only run tests that match the regular expression
+        default: ""
+        required: false
+
+  push:
+    branches: ['main']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Login in quay
+      run: docker login quay.io -u ${QUAY_USER} -p ${QUAY_TOKEN}
+      env:
+        QUAY_USER: ${{ secrets.QUAY_USERNAME }}
+        QUAY_TOKEN: ${{ secrets.QUAY_PASSWORD }}
+    - name: Check out code
+      uses: actions/checkout@main
+    - name: Build the Docker images
+      run: docker build --no-cache -t quay.io/redhat-chaos/prow-scripts .
+    - name: Push the Docker images
+      run: docker push quay.io/redhat-chaos/prow-scripts:latest
