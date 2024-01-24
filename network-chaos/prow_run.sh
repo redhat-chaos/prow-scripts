@@ -28,10 +28,10 @@ else
   exit 1
 fi
 
-export SCENARIO_FILE=/tmp/network-chaos/network_chaos.yaml
+export SCENARIO_FILE=/tmp/network_chaos.yaml
 envsubst < config.yaml.template > /tmp/network_chaos_config.yaml
 
 cat /tmp/network_chaos_config.yaml
-cat /tmp/network-chaos/network_chaos.yaml
+cat /tmp/network_chaos.yaml
 
 python3.9 $krn_loc/run_kraken.py --config=/tmp/network_chaos_config.yaml

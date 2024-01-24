@@ -31,9 +31,9 @@ checks
 #envsubst < node-memory-hog/input.yaml.template> node-memory-hog/memory_hog_scenario.yaml
 #export SCENARIO_FILE="node-memory-hog/memory_hog_scenario.yaml"
 export SCENARIO_FILE="$SCENARIO_FOLDER/input.yaml"
-envsubst < config.yaml.template > memory_hog_config.yaml
+envsubst < config.yaml.template > /tmp/memory_hog_config.yaml
 
 # Run Kraken
-cat memory_hog_config.yaml
+cat /tmp/memory_hog_config.yaml
 cat $SCENARIO_FOLDER/input.yaml
-python3.9 $krkn_loc/run_kraken.py --config=memory_hog_config.yaml
+python3.9 $krkn_loc/run_kraken.py --config=/tmp/memory_hog_config.yaml
