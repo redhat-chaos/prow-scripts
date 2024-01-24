@@ -20,14 +20,14 @@ krn_loc=/root/kraken
 
 # Substitute config with environment vars defined
 if [[ -z "$POD_LABEL" ]]; then
-  envsubst < pod-scenarios/pod_scenario_namespace.yaml.template > /tmp/pod-scenarios/pod_scenario.yaml
+  envsubst < pod-scenarios/pod_scenario_namespace.yaml.template > /tmp/pod_scenario.yaml
 else  
-  envsubst < pod-scenarios/pod_scenario.yaml.template > /tmp/pod-scenarios/pod_scenario.yaml
+  envsubst < pod-scenarios/pod_scenario.yaml.template > /tmp/pod_scenario.yaml
 fi
-export SCENARIO_FILE=/tmp/pod-scenarios/pod_scenario.yaml
+export SCENARIO_FILE=/tmp/pod_scenario.yaml
 envsubst < config.yaml.template > /tmp/pod_scenario_config.yaml
 
 cat /tmp/pod_scenario_config.yaml
-cat /tmp/pod-scenarios/pod_scenario.yaml
+cat /tmp/pod_scenario.yaml
 
 python3.9 $krn_loc/run_kraken.py --config=/tmp/pod_scenario_config.yaml

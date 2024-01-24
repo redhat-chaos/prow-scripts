@@ -22,17 +22,17 @@ krkn_loc=/tmp/kraken
 
 # Substitute config with environment vars defined
 if [[ "$CLOUD_TYPE" == "vmware" || "$CLOUD_TYPE" == "ibmcloud" ]]; then
-  envsubst < node-scenarios/plugin_node_scenario.yaml.template > $krkn_loc/scenarios/node_scenario.yaml
+  envsubst < node-scenarios/plugin_node_scenario.yaml.template > /tmp/node_scenario.yaml
   export SCENARIO_TYPE="plugin_scenarios"
   export ACTION=${ACTION:="$CLOUD_TYPE-node-reboot"}
 else
-  envsubst < node-scenarios/node_scenario.yaml.template > $krkn_loc/scenarios/node_scenario.yaml
+  envsubst < node-scenarios/node_scenario.yaml.template > /tmp/node_scenario.yaml
 fi
 export SCENARIO_TYPE=node_scenarios
-export SCENARIO_FILE=$krkn_loc/scenarios/node_scenario.yaml
+export SCENARIO_FILE=/tmp/node_scenario.yaml
 envsubst < config.yaml.template > /tmp/node_scenario_config.yaml
 
 # Run Kraken
-cat $krkn_loc/scenarios/node_scenario.yaml
+cat /tmp/node_scenario.yaml
 cat /tmp/node_scenario_config.yaml
 python3.9 $krkn_loc/run_kraken.py --config=/tmp/node_scenario_config.yaml
