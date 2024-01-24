@@ -30,9 +30,9 @@ else
 fi
 export SCENARIO_TYPE=node_scenarios
 export SCENARIO_FILE=$krkn_loc/scenarios/node_scenario.yaml
-envsubst < config.yaml.template > node_scenario_config.yaml
+envsubst < config.yaml.template > /tmp/node_scenario_config.yaml
 
 # Run Kraken
 cat $krkn_loc/scenarios/node_scenario.yaml
-cat node_scenario_config.yaml
-python3.9 $krkn_loc/run_kraken.py --config=node_scenario_config.yaml
+cat /tmp/node_scenario_config.yaml
+python3.9 $krkn_loc/run_kraken.py --config=/tmp/node_scenario_config.yaml

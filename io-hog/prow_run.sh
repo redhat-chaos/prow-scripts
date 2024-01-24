@@ -31,9 +31,9 @@ checks
 #envsubst < node-io-hog/input.yaml.template> node-io-hog/io_hog_scenario.yaml
 #export SCENARIO_FILE="node-io-hog/io_hog_scenario.yaml"
 export SCENARIO_FILE="$SCENARIO_FOLDER/input.yaml"
-envsubst < config.yaml.template > io_hog_config.yaml
+envsubst < config.yaml.template > /tmp/io_hog_config.yaml
 
 # Run Kraken
-cat io_hog_config.yaml
+cat /tmp/io_hog_config.yaml
 cat $SCENARIO_FOLDER/input.yaml
-python3.9 $krkn_loc/run_kraken.py --config=io_hog_config.yaml
+python3.9 $krkn_loc/run_kraken.py --config=/tmp/io_hog_config.yaml
