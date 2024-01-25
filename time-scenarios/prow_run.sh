@@ -25,4 +25,4 @@ envsubst < config.yaml.template > /tmp/time_scenario_config.yaml
 # Run Kraken
 cat /tmp/time_scenario_config.yaml
 cat /tmp/time_scenario.yaml
-python3.9 $krkn_loc/run_kraken.py --config=/tmp/time_scenario_config.yaml
+python3.9 $krkn_loc/run_kraken.py --config=/tmp/time_scenario_config.yaml -o /tmp/report.out

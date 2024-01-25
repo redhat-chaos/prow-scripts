@@ -26,5 +26,5 @@ envsubst < config.yaml.template > /tmp/pvc_scenario_config.yaml
 # Run Kraken
 cat /tmp/pvc_scenario_config.yaml
 cat /tmp/pvc_scenario.yaml
-python3.9 $krkn_loc/run_kraken.py --config=/tmp/pvc_scenario_config.yaml 2>&1
+python3.9 $krkn_loc/run_kraken.py --config=/tmp/pvc_scenario_config.yaml -o /tmp/report.out 2>&1
 

@@ -34,4 +34,5 @@ envsubst < config.yaml.template > /tmp/network_chaos_config.yaml
 cat /tmp/network_chaos_config.yaml
 cat /tmp/network_chaos.yaml
 
-python3.9 $krn_loc/run_kraken.py --config=/tmp/network_chaos_config.yaml
+python3.9 $krn_loc/run_kraken.py --config=/tmp/network_chaos_config.yaml -o /tmp/report.out
+

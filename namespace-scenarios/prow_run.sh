@@ -25,4 +25,4 @@ envsubst < config.yaml.template > /tmp/service_disruption_config.yaml
 # Run Kraken
 cat /tmp/service_disruption_config.yaml
 cat /tmp/service_disruption_scenario.yaml
-python3.9 $krkn_loc/run_kraken.py --config=/tmp/service_disruption_config.yaml
+python3.9 $krkn_loc/run_kraken.py --config=/tmp/service_disruption_config.yaml -o /tmp/report.out
