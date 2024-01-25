@@ -27,4 +27,5 @@ envsubst < config.yaml.template > /tmp/container_scenario_config.yaml
 # Run Kraken
 cat /tmp/container_scenario_config.yaml
 cat /tmp/container_scenario.yaml
-python3.9 $krkn_loc/run_kraken.py --config=/tmp/container_scenario_config.yaml
+python3.9 $krkn_loc/run_kraken.py --config=/tmp/container_scenario_config.yaml -o /tmp/report.out
+
