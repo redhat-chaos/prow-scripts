@@ -1,9 +1,6 @@
 #!/bin/bash
 
 set -ex
-
-git clone 
-
 ls
 
 # Source env.sh to read all the vars
