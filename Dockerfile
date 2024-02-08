@@ -12,6 +12,8 @@ RUN git clone https://github.com/krkn-chaos/krkn-hub.git /krkn-hub
 # Copy configurations
 ADD . /krkn-hub
 
+RUN chmod +x /krkn-hub/*/prow_run.sh
+
 RUN ls && yum install -y python3 python3-pip python3-devel git diffutils gettext && \
     python3 -m pip install --upgrade pip
 
