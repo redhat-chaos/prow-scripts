@@ -25,4 +25,3 @@ envsubst < config.yaml.template > /tmp/power_outage_config.yaml
 cat /tmp/power_outage_scenario.yaml
 cat /tmp/power_outage_config.yaml
 python3.9 /root/kraken/run_kraken.py --config=/tmp/power_outage_config.yaml -o /tmp/report.out
-
