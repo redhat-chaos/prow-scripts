@@ -31,7 +31,7 @@ envsubst < pod_network_scenario.yaml.template > pod_network_scenario.yaml
 export SCENARIO_FILE=pod-network-chaos/pod_network_scenario.yaml
 envsubst < config.yaml.template > pod_network_scenario_config.yaml
 
-cat pod_network_scenario_config.yaml
-cat pod-network-chaos/pod_network_scenario.yaml
+cat cat /tmp/pod_network_scenario_config.yaml
+cat cat /tmp/pod_network_scenario.yaml
 
-python3.9 $krn_loc/run_kraken.py --config=pod_network_scenario_config.yaml
+python3.9 $krn_loc/run_kraken.py --config=/tmp/pod_network_scenario_config.yaml -o /tmp/report.out
