@@ -25,4 +25,4 @@ export SCENARIO_FILE=$krkn_loc/scenarios/zone_outage.yaml
 # Run Kraken
 cat /tmp/zone_outage.yaml
 cat /tmp/zone_config.yaml
-python3.9 /root/kraken/run_kraken.py --config=/tmp/zone_config.yaml
+python3.9 /root/kraken/run_kraken.py --config=/tmp/zone_config.yaml -o /tmp/report.out
