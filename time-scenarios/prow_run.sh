@@ -15,7 +15,7 @@ oc version
 
 source time-scenarios/env.sh
 
-krkn_loc=/root/kraken
+krkn_loc=/home/krkn/kraken
 
 # Substitute config with environment vars defined
 envsubst < time-scenarios/time_scenario.yaml.template > /tmp/time_scenario.yaml

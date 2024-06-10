@@ -20,7 +20,7 @@ for node in $(oc get nodes | awk 'NR!=1{print $1}'); do oc get node/$node -o yam
 
 source pod-network-chaos/env.sh
 
-krn_loc=/root/kraken
+krn_loc=/home/krkn/kraken
 
 # Substitute config with environment vars defined
 if [[ -z $NAMESPACE ]]; then

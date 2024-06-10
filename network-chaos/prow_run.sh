@@ -15,7 +15,7 @@ oc version
 
 source network-chaos/env.sh
 
-krn_loc=/root/kraken
+krn_loc=/home/krkn/kraken
 
 # Substitute config with environment vars defined
 if [[ $TRAFFIC_TYPE == "egress" ]]; then

@@ -15,7 +15,7 @@ oc version
 
 source service-disruption-scenarios/env.sh
 
-krkn_loc=/root/kraken
+krkn_loc=/home/krkn/kraken
 
 # Substitute config with environment vars defined
 export SCENARIO_FILE="- /tmp/service_disruption_scenario.yaml"

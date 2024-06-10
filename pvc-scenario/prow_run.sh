@@ -16,7 +16,7 @@ oc version
 
 source pvc-scenario/env.sh
 
-krkn_loc=/root/kraken
+krkn_loc=/home/krkn/kraken
 
 # Substitute config with environment vars defined
 envsubst < pvc-scenario/pvc_scenario.yaml.template > /tmp/pvc_scenario.yaml
