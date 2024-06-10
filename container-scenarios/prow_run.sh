@@ -14,7 +14,7 @@ oc version
 
 source container-scenarios/env.sh
 
-krkn_loc=/root/kraken
+krkn_loc=/home/krkn/kraken
 
 # Substitute config with environment vars defined
 envsubst < container-scenarios/container_scenario.yaml.template > /tmp/container_scenario.yaml

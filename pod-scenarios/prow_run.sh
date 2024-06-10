@@ -16,7 +16,7 @@ oc version
 
 source pod-scenarios/env.sh
 
-krn_loc=/root/kraken
+krn_loc=/home/krkn/kraken
 
 # Substitute config with environment vars defined
 if [[ -z "$POD_LABEL" ]]; then

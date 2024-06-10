@@ -16,8 +16,7 @@ export KUBECONFIG=$KRKN_KUBE_CONFIG
 echo "Printing cluster version"
 oc version
 
-# Move kraken from root dir to tmp to avoid permissions issues in prow until fixed in base image
-cp -r /root/kraken /tmp/kraken
+cp -r /home/krkn/kraken /tmp/kraken
 krkn_loc=/tmp/kraken
 
 # Substitute config with environment vars defined
