@@ -15,6 +15,8 @@ oc version
 source container-scenarios/env.sh
 
 krkn_loc=/home/krkn/kraken
+# Make krkn executable
+sudo chmod -R 755 $krkn_loc
 
 # Substitute config with environment vars defined
 envsubst < container-scenarios/container_scenario.yaml.template > /tmp/container_scenario.yaml

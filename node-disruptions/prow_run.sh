@@ -18,6 +18,8 @@ oc version
 
 cp -r /home/krkn/kraken /tmp/kraken
 krkn_loc=/tmp/kraken
+# Make krkn executable
+sudo chmod -R 755 $krkn_loc
 
 # Substitute config with environment vars defined
 if [[ "$CLOUD_TYPE" == "vmware" || "$CLOUD_TYPE" == "ibmcloud" ]]; then

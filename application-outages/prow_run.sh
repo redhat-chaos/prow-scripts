@@ -15,6 +15,8 @@ oc version
 source application-outages/env.sh
 
 krkn_loc=/home/krkn/kraken
+# Make krkn executable
+sudo chmod -R 755 $krkn_loc
 
 # Substitute config with environment vars defined
 envsubst < application-outages/app_outages.yaml.template > /tmp/app_outages.yaml
