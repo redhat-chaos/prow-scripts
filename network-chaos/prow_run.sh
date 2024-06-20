@@ -16,8 +16,6 @@ oc version
 source network-chaos/env.sh
 
 krn_loc=/home/krkn/kraken
-# Make krkn executable
-sudo chmod -R 755 $krkn_loc
 
 # Substitute config with environment vars defined
 if [[ $TRAFFIC_TYPE == "egress" ]]; then

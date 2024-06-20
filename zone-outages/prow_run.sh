@@ -25,6 +25,4 @@ export SCENARIO_FILE=/tmp/zone_outage.yaml
 # Run Kraken
 cat /tmp/zone_outage.yaml
 cat /tmp/zone_config.yaml
-# Make krkn executable
-sudo chmod -R 755 /home/krkn/kraken
-python3.9 /home/krkn/kraken/run_kraken.py --config=/tmp/zone_config.yaml -o /tmp/report.out
+python3.9 /root/kraken/run_kraken.py --config=/tmp/zone_config.yaml -o /tmp/report.out
