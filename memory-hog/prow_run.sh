@@ -12,6 +12,8 @@ export KUBECONFIG=$KRKN_KUBE_CONFIG
 cp -r /home/krkn/kraken /tmp/kraken
 krkn_loc=/tmp/kraken
 SCENARIO_FOLDER="$krkn_loc/scenarios/arcaflow/memory-hog"
+# Make krkn executable
+sudo chmod -R 755 $krkn_loc
 
 # cluster version
 echo "Printing cluster version"

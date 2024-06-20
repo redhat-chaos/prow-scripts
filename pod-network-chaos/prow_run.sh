@@ -21,6 +21,8 @@ for node in $(oc get nodes | awk 'NR!=1{print $1}'); do oc get node/$node -o yam
 source pod-network-chaos/env.sh
 
 krn_loc=/home/krkn/kraken
+# Make krkn executable
+sudo chmod -R 755 $krkn_loc
 
 # Substitute config with environment vars defined
 if [[ -z $NAMESPACE ]]; then

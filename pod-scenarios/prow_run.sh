@@ -18,6 +18,9 @@ source pod-scenarios/env.sh
 
 krn_loc=/home/krkn/kraken
 
+# Make krkn executable
+sudo chmod -R 755 $krkn_loc
+
 # Substitute config with environment vars defined
 if [[ -z "$POD_LABEL" ]]; then
   envsubst < pod-scenarios/pod_scenario_namespace.yaml.template > /tmp/pod_scenario.yaml

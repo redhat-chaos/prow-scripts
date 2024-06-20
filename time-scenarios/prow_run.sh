@@ -17,6 +17,9 @@ source time-scenarios/env.sh
 
 krkn_loc=/home/krkn/kraken
 
+# Make krkn executable
+sudo chmod -R 755 $krkn_loc
+
 # Substitute config with environment vars defined
 envsubst < time-scenarios/time_scenario.yaml.template > /tmp/time_scenario.yaml
 export SCENARIO_FILE="/tmp/time_scenario.yaml"
