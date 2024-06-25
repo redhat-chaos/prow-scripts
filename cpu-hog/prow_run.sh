@@ -8,9 +8,7 @@ ls
 source env.sh
 
 export KUBECONFIG=$KRKN_KUBE_CONFIG
-# Move kraken from root dir to tmp to avoid permissions issues in prow until fixed in base image
-cp -r /home/krkn/kraken /tmp/kraken
-krkn_loc=/tmp/kraken
+krkn_loc=/home/krkn/kraken
 SCENARIO_FOLDER="$krkn_loc/scenarios/arcaflow/cpu-hog"
 
 # cluster version
@@ -31,9 +29,9 @@ checks
 #envsubst < node-cpu-hog/input.yaml.template> node-cpu-hog/cpu_hog_scenario.yaml
 #export SCENARIO_FILE="node-cpu-hog/cpu_hog_scenario.yaml"
 export SCENARIO_FILE="$SCENARIO_FOLDER/input.yaml"
-envsubst < config.yaml.template > /tmp/cpu_hog_config.yaml
+envsubst < config.yaml.template > $krkn_loc/cpu_hog_config.yaml
 
 # Run Kraken
-cat /tmp/cpu_hog_config.yaml
+cat $krkn_loc/cpu_hog_config.yaml
 cat $SCENARIO_FOLDER/input.yaml
-python3.9 $krkn_loc/run_kraken.py --config=/tmp/cpu_hog_config.yaml -o /tmp/report.out
+python3.9 $krkn_loc/run_kraken.py --config=$krkn_loc/cpu_hog_config.yaml -o /tmp/report.out
