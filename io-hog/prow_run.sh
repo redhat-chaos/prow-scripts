@@ -15,19 +15,14 @@ SCENARIO_FOLDER="$krkn_loc/scenarios/arcaflow/io-hog"
 echo "Printing cluster version"
 oc version
 
-# Copy config to kraken
-cp node-io-hog/input.yaml.template $SCENARIO_FOLDER/input.yaml.template
-
 source node-io-hog/env.sh
-source env.sh
 source common_run.sh
 
+envsubst < node-io-hog/input.yaml.template> $SCENARIO_FOLDER/input.yaml
 setup_arcaflow_env "$SCENARIO_FOLDER"
 checks
 
 # Substitute config with environment vars defined
-#envsubst < node-io-hog/input.yaml.template> node-io-hog/io_hog_scenario.yaml
-#export SCENARIO_FILE="node-io-hog/io_hog_scenario.yaml"
 export SCENARIO_FILE="$SCENARIO_FOLDER/input.yaml"
 envsubst < config.yaml.template > $krkn_loc/io_hog_config.yaml
 
