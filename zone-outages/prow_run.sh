@@ -12,6 +12,8 @@ checks
 
 export KUBECONFIG=$KRKN_KUBE_CONFIG
 
+krn_loc=/home/krkn/kraken
+
 # cluster version
 echo "Printing cluster version"
 oc version
@@ -25,4 +27,4 @@ export SCENARIO_FILE=/tmp/zone_outage.yaml
 # Run Kraken
 cat /tmp/zone_outage.yaml
 cat /tmp/zone_config.yaml
-python3.9 /root/kraken/run_kraken.py --config=/tmp/zone_config.yaml -o /tmp/report.out
+python3.9 $krn_loc/run_kraken.py --config=/tmp/zone_config.yaml -o /tmp/report.out
