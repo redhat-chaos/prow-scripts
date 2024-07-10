@@ -20,9 +20,10 @@ oc version
 
 # Substitute config with environment vars defined
 envsubst < zone-outages/zone_outage_scenario.yaml.template > /tmp/zone_outage.yaml
-envsubst < config.yaml.template > /tmp/zone_config.yaml
 
 export SCENARIO_FILE=/tmp/zone_outage.yaml
+
+envsubst < config.yaml.template > /tmp/zone_config.yaml
 
 # Run Kraken
 cat /tmp/zone_outage.yaml
