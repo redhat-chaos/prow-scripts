@@ -29,5 +29,6 @@ envsubst < config.yaml.template > $krkn_loc/io_hog_config.yaml
 # Run Kraken
 cat $krkn_loc/io_hog_config.yaml
 cat $SCENARIO_FOLDER/input.yaml
-python3.9 $krkn_loc/run_kraken.py --config=$krkn_loc/io_hog_config.yaml -o /tmp/report.out
+cd $krkn_loc
+python3.9 run_kraken.py --config=io_hog_config.yaml -o /tmp/report.out
 
