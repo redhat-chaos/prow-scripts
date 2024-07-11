@@ -10,7 +10,8 @@ RUN git clone https://github.com/krkn-chaos/krkn-hub.git /home/krkn/krkn-hub
 ADD . /home/krkn/krkn-hub
 
 USER root
-RUN chmod +x /home/krkn/krkn-hub/*/prow_run.sh
+RUN chown -R krkn:krkn /home/krkn && chmod -R 777 /home/krkn
+
 
 USER krkn
 ENV PYTHONPATH=/home/krkn/krkn-hub/packages:$PYTHONPATH PYTHONUNBUFFERED=1
