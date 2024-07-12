@@ -23,7 +23,7 @@ setup_arcaflow_env "$SCENARIO_FOLDER"
 checks
 
 # Substitute config with environment vars defined
-export SCENARIO_FILE="$SCENARIO_FOLDER/input.yaml"
+export SCENARIO_FILE="scenarios/arcaflow/memory-hog/input.yaml"
 envsubst < config.yaml.template > $krkn_loc/memory_hog_config.yaml
 
 # Run Kraken
