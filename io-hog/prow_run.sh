@@ -18,7 +18,7 @@ oc version
 source node-io-hog/env.sh
 source common_run.sh
 
-envsubst < node-io-hog/input.yaml.template> $SCENARIO_FOLDER/input.yaml
+cp node-io-hog/input.yaml.template $SCENARIO_FOLDER/input.yaml.template
 setup_arcaflow_env "$SCENARIO_FOLDER"
 checks
 
