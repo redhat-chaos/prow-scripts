@@ -18,7 +18,7 @@ oc version
 source node-memory-hog/env.sh
 source common_run.sh
 
-envsubst < node-memory-hog/input.yaml.template> $SCENARIO_FOLDER/input.yaml.template
+cp node-memory-hog/input.yaml.template $SCENARIO_FOLDER/input.yaml.template
 setup_arcaflow_env "$SCENARIO_FOLDER"
 checks
 
