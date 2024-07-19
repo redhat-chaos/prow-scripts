@@ -26,8 +26,10 @@ if [[ "$CLOUD_TYPE" == "vmware" || "$CLOUD_TYPE" == "ibmcloud" ]]; then
   export ACTION=${ACTION:="$CLOUD_TYPE-node-reboot"}
 else
   envsubst < node-scenarios/node_scenario.yaml.template > /tmp/node_scenario.yaml
+  export SCENARIO_TYPE=node_scenarios
+
 fi
-export SCENARIO_TYPE=node_scenarios
+
 export SCENARIO_FILE=/tmp/node_scenario.yaml
 envsubst < config.yaml.template > /tmp/node_scenario_config.yaml
 
