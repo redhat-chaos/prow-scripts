@@ -21,9 +21,10 @@ krkn_loc=/tmp/kraken
 
 # Substitute config with environment vars defined
 if [[ "$CLOUD_TYPE" == "vmware" || "$CLOUD_TYPE" == "ibmcloud" ]]; then
+  export ACTION=${ACTION:="$CLOUD_TYPE-node-reboot"}
   envsubst < node-scenarios/plugin_node_scenario.yaml.template > /tmp/node_scenario.yaml
   export SCENARIO_TYPE="plugin_scenarios"
-  export ACTION=${ACTION:="$CLOUD_TYPE-node-reboot"}
+  
 else
   envsubst < node-scenarios/node_scenario.yaml.template > /tmp/node_scenario.yaml
   export SCENARIO_TYPE=node_scenarios
