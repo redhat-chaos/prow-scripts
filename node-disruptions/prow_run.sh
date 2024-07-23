@@ -22,6 +22,16 @@ krkn_loc=/tmp/kraken
 # Substitute config with environment vars defined
 if [[ "$CLOUD_TYPE" == "vmware" || "$CLOUD_TYPE" == "ibmcloud" ]]; then
   export ACTION=${ACTION:="$CLOUD_TYPE-node-reboot"}
+  # IBM doesnt have verify session
+  # Invalid parameter 'verify_session', expected one of: name, runs, label_selector, timeout, instance_count, skip_openshift_checks, kubeconfig_path
+  if [[ "$CLOUD_TYPE" == "vmware" ]]; then
+    
+    ## Set to True if you want to verify the vSphere client session using certificates; else False
+    export VERIFY_SESSION="verify_session: $VERIFY_SESSION"
+  else
+    export VERIFY_SESSION=""
+  fi
+
   envsubst < node-scenarios/plugin_node_scenario.yaml.template > /tmp/node_scenario.yaml
   export SCENARIO_TYPE="plugin_scenarios"
   
