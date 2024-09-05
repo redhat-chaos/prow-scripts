@@ -28,10 +28,12 @@ if [[ "$CLOUD_TYPE" == "vmware" || "$CLOUD_TYPE" == "ibmcloud" ]]; then
     
     ## Set to True if you want to verify the vSphere client session using certificates; else False
     export VERIFY_SESSION="verify_session: $VERIFY_SESSION"
+    export SKIP_OPENSHIFT_CHECKS="skip_openshift_checks: $SKIP_OPENSHIFT_CHECKS"
   else
+    export SKIP_OPENSHIFT_CHECKS=""
     export VERIFY_SESSION=""
   fi
-
+  env
   envsubst < node-scenarios/plugin_node_scenario.yaml.template > /tmp/node_scenario.yaml
   export SCENARIO_TYPE="plugin_scenarios"
   
