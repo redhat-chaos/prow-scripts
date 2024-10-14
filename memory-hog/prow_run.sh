@@ -9,7 +9,7 @@ source env.sh
 
 export KUBECONFIG=$KRKN_KUBE_CONFIG
 krkn_loc=/home/krkn/kraken
-SCENARIO_FOLDER="$krkn_loc/scenarios/arcaflow/memory-hog"
+SCENARIO_FOLDER="$krkn_loc/scenarios/kube/memory-hog"
 
 # cluster version
 echo "Printing cluster version"
