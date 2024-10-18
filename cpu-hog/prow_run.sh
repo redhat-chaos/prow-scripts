@@ -10,7 +10,7 @@ source env.sh
 export KUBECONFIG=$KRKN_KUBE_CONFIG
 krkn_loc=/home/krkn/kraken
 sub_scenario_folder="scenarios/kube/cpu-hog"
-SCENARIO_FOLDER="$krkn_loc/sub_scenario_folder"
+SCENARIO_FOLDER="$krkn_loc/$sub_scenario_folder"
 
 # cluster version
 echo "Printing cluster version"
