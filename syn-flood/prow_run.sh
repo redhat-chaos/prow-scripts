@@ -19,8 +19,6 @@ krkn_loc=/home/krkn/kraken
 # Substitute config with environment vars defined
 envsubst < config.yaml.template > /tmp/syn_flood_config.yaml
 
-config_setup
-
 # Run Kraken
 cat /tmp/syn_flood_config.yaml
 python3.9 $krkn_loc/run_kraken.py --config=/tmp/syn_flood_config.yaml -o /tmp/report.out 2>&1
