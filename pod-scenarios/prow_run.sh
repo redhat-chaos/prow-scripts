@@ -1,14 +1,10 @@
 #!/bin/bash
-
 set -ex
-
-ls
 
 # Source env.sh to read all the vars
 source env.sh
 
 export KUBECONFIG=$KRKN_KUBE_CONFIG
-
 
 # cluster version
 echo "Printing cluster version"
