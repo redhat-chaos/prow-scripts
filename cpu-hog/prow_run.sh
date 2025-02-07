@@ -9,7 +9,7 @@ source env.sh
 
 export KUBECONFIG=$KRKN_KUBE_CONFIG
 krkn_loc=/home/krkn/kraken
-sub_scenario_folder="scenarios/kube/cpu-hog"
+sub_scenario_folder="scenarios/kube"
 SCENARIO_FOLDER="$krkn_loc/$sub_scenario_folder"
 
 # cluster version
@@ -19,12 +19,12 @@ oc version
 source node-cpu-hog/env.sh
 source common_run.sh
 
-cp node-cpu-hog/input.yaml.template $SCENARIO_FOLDER/input.yaml.template
-setup_arcaflow_env "$SCENARIO_FOLDER"
+cp node-cpu-hog/cpu-hog.yml.template $sub_scenario_folder/cpu-hog.yml
+config_setup
 checks
 
 # Substitute config with environment vars defined
-export SCENARIO_FILE="$sub_scenario_folder/input.yaml"
+export SCENARIO_FILE="$sub_scenario_folder/cpu-hog.yml"
 envsubst < config.yaml.template > $krkn_loc/cpu_hog_config.yaml
 
 
