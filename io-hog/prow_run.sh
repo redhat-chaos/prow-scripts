@@ -19,7 +19,7 @@ oc version
 source node-io-hog/env.sh
 source common_run.sh
 
-envsubst < $krkn_loc/scenarios/kube/io-hog.yml.template > $krkn_loc/scenarios/kube/io-hog.yml
+envsubst < node-io-hog/io-hog.yml.template > $krkn_loc/scenarios/kube/io-hog.yml
 
 # Substitute config with environment vars defined
 export SCENARIO_FILE="$sub_scenario_folder/io-hog.yml"

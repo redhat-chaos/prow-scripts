@@ -19,7 +19,7 @@ oc version
 source node-memory-hog/env.sh
 source common_run.sh
 
-envsubst < $krkn_loc/scenarios/kube/memory-hog.yml.template > $krkn_loc/scenarios/kube/memory-hog.yml
+envsubst < node-memory-hog/memory-hog.yml.template > $krkn_loc/scenarios/kube/memory-hog.yml
 
 # Substitute config with environment vars defined
 export SCENARIO_FILE="$sub_scenario_folder/memory-hog.yml"
