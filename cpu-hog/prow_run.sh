@@ -20,7 +20,6 @@ source node-cpu-hog/env.sh
 source common_run.sh
 
 cp node-cpu-hog/cpu-hog.yml.template $sub_scenario_folder/cpu-hog.yml
-config_setup
 checks
 
 # Substitute config with environment vars defined

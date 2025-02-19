@@ -28,7 +28,7 @@ export SCENARIO_FILE="$sub_scenario_folder/io-hog.yml"
 envsubst < config.yaml.template > $krkn_loc/io_hog_config.yaml
 
 checks
-config_setup
+
 # Run Kraken
 
 cd $krkn_loc

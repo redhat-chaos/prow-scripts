@@ -28,7 +28,6 @@ export SCENARIO_FILE="$sub_scenario_folder/memory-hog.yml"
 envsubst < config.yaml.template > $krkn_loc/config/mem-config.yaml
 
 checks
-config_setup
 
 # Run Kraken
 cd $krkn_loc
