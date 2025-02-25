@@ -25,7 +25,7 @@ envsubst < node-memory-hog/memory-hog.yml.template > $krkn_loc/scenarios/kube/me
 export SCENARIO_FILE="$sub_scenario_folder/memory-hog.yml"
 
 # Substitute config with environment vars defined
-envsubst < config.yaml.template > $krkn_loc/config/mem-config.yaml
+envsubst < config.yaml.template > $krkn_loc/config/memory_hog_config.yaml
 
 checks
 
