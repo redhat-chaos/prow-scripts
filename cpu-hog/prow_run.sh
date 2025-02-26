@@ -19,10 +19,10 @@ oc version
 source node-cpu-hog/env.sh
 source common_run.sh
 
-cp node-cpu-hog/cpu-hog.yml.template $sub_scenario_folder/cpu-hog.yml
 checks
 
 # Substitute config with environment vars defined
+envsubst < node-cpu-hog/cpu-hog.yml.template > $krkn_loc/scenarios/kube/cpu-hog.yml
 export SCENARIO_FILE="$sub_scenario_folder/cpu-hog.yml"
 envsubst < config.yaml.template > $krkn_loc/cpu_hog_config.yaml
 
