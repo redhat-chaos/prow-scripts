@@ -18,8 +18,16 @@ krn_loc=/home/krkn/kraken
 echo "Printing cluster version"
 oc version
 
+
+
 # Substitute config with environment vars defined
-envsubst < zone-outages/zone_outage_scenario.yaml.template > /tmp/zone_outage.yaml
+
+
+if [[ "$CLOUD_TYPE" == "gcp" ]]; then
+    envsubst < zone-outages/zone_outage_scenario_gcp.yaml.template >  /tmp/zone_outage.yaml
+else 
+    envsubst < zone-outages/zone_outage_scenario.yaml.template > /tmp/zone_outage.yaml
+fi 
 
 export SCENARIO_FILE=/tmp/zone_outage.yaml
 
