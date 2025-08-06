@@ -2,4 +2,4 @@
 
 This repo is used to run CI tests in https://github.com/openshift/release
 
-Updated: 13:34 Jul 24 2025
+Updated: 12:48 Aug 06 2025
