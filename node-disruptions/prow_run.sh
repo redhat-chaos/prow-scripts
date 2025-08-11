@@ -20,10 +20,10 @@ cp -r /home/krkn/kraken /tmp/kraken
 krkn_loc=/tmp/kraken
 
 # Choose the right template based on cloud type
-if [ "$CLOUD_TYPE" = "baremetal" ]; then
-    TEMPLATE_FILE="node-scenarios/baremetal_node_scenario.yaml.template"
+if [[ "$CLOUD_TYPE" == "bm" || "$CLOUD_TYPE" == "baremetal" ]]; then
+    TEMPLATE_FILE=node-scenarios/baremetal_node_scenario.yaml.template
 else
-    TEMPLATE_FILE="node-scenarios/node_scenario.yaml.template"
+    TEMPLATE_FILE=node-scenarios/node_scenario.yaml.template
 fi
 
 # Substitute config with environment vars defined
