@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -ex
-
 function cerberus_cleanup() {
   echo "End running cerberus scenarios"
   PID=$( ps -a | grep -E 'cerberus' | grep -v "grep" | awk '{print $1}' > pid_list.txt) 
@@ -32,4 +30,5 @@ envsubst < cerberus/cerberus.yaml.template > $config_loc/cerberus_config.yaml
 
 cat $config_loc/cerberus_config.yaml
 
+set -ex
 python3 $crb_loc/start_cerberus.py --config=$config_loc/cerberus_config.yaml -o $config_loc/report.out
