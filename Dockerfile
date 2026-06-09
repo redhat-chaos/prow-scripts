@@ -14,6 +14,9 @@ USER root
 RUN dnf install -y unzip &&  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && ./aws/install
 RUN aws --version
 
+RUN curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+RUN helm version
+
 RUN chown -R krkn:krkn /home/krkn && chmod -R 777 /home/krkn
 
 USER krkn
