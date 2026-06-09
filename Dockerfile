@@ -20,7 +20,7 @@ RUN helm version
 RUN chown -R krkn:krkn /home/krkn && chmod -R 777 /home/krkn
 
 USER krkn
-ENV PYTHONPATH=/home/krkn/krkn-hub/packages:$PYTHONPATH PYTHONUNBUFFERED=1
+ENV PYTHONPATH=/home/krkn/krkn-hub/packages PYTHONUNBUFFERED=1
 
 RUN ls
 
