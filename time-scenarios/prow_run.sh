@@ -26,10 +26,10 @@ envsubst < config.yaml.template > /tmp/time_scenario_config.yaml
 cat /tmp/time_scenario_config.yaml
 cat /tmp/time_scenario.yaml
 
-[ -z $JUNIT_TESTCASE ] && JUNIT_TESTCASE="time-scenarios"
-[ -z $ARTIFACT_DIR ] && ARTIFACT_DIR="/tmp"
+[ -z "$JUNIT_TESTCASE" ] && JUNIT_TESTCASE="time-scenarios"
+[ -z "$ARTIFACT_DIR" ] && ARTIFACT_DIR="/tmp"
 
-TEST_VERSION=`oc version -o json | jq .openshiftVersion`
+TEST_VERSION=$(oc version -o json | jq -r '.openshiftVersion')
 
 python3.11 $krkn_loc/run_kraken.py --config=/tmp/time_scenario_config.yaml \
 -o /tmp/report.out \

@@ -24,4 +24,13 @@ envsubst < config.yaml.template > /tmp/power_outage_config.yaml
 # Run Kraken
 cat /tmp/power_outage_scenario.yaml
 cat /tmp/power_outage_config.yaml
-python3.11 /home/krkn/kraken/run_kraken.py --config=/tmp/power_outage_config.yaml -o /tmp/report.out
+
+[ -z "$JUNIT_TESTCASE" ] && JUNIT_TESTCASE="power-outage"
+[ -z "$ARTIFACT_DIR" ] && ARTIFACT_DIR="/tmp"
+TEST_VERSION=$(oc version -o json | jq -r '.openshiftVersion')
+
+python3.11 /home/krkn/kraken/run_kraken.py --config=/tmp/power_outage_config.yaml \
+-o /tmp/report.out \
+--junit-testcase "$JUNIT_TESTCASE" \
+--junit-testcase-path "$ARTIFACT_DIR" \
+--junit-testcase-version "$TEST_VERSION"

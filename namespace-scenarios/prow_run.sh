@@ -25,4 +25,13 @@ envsubst < config.yaml.template > /tmp/service_disruption_config.yaml
 # Run Kraken
 cat /tmp/service_disruption_config.yaml
 cat /tmp/service_disruption_scenario.yaml
-python3.11 $krkn_loc/run_kraken.py --config=/tmp/service_disruption_config.yaml -o /tmp/report.out
+
+[ -z "$JUNIT_TESTCASE" ] && JUNIT_TESTCASE="namespace-scenarios"
+[ -z "$ARTIFACT_DIR" ] && ARTIFACT_DIR="/tmp"
+TEST_VERSION=$(oc version -o json | jq -r '.openshiftVersion')
+
+python3.11 $krkn_loc/run_kraken.py --config=/tmp/service_disruption_config.yaml \
+-o /tmp/report.out \
+--junit-testcase "$JUNIT_TESTCASE" \
+--junit-testcase-path "$ARTIFACT_DIR" \
+--junit-testcase-version "$TEST_VERSION"
