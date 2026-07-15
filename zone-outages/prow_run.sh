@@ -36,4 +36,13 @@ envsubst < config.yaml.template > /tmp/zone_config.yaml
 # Run Kraken
 cat /tmp/zone_outage.yaml
 cat /tmp/zone_config.yaml
-python3.11 $krn_loc/run_kraken.py --config=/tmp/zone_config.yaml -o /tmp/report.out
+
+[ -z "$JUNIT_TESTCASE" ] && JUNIT_TESTCASE="zone-outages"
+[ -z "$ARTIFACT_DIR" ] && ARTIFACT_DIR="/tmp"
+TEST_VERSION=$(oc version -o json | jq -r '.openshiftVersion')
+
+python3.11 $krn_loc/run_kraken.py --config=/tmp/zone_config.yaml \
+-o /tmp/report.out \
+--junit-testcase "$JUNIT_TESTCASE" \
+--junit-testcase-path "$ARTIFACT_DIR" \
+--junit-testcase-version "$TEST_VERSION"

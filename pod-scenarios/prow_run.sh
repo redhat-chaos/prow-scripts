@@ -26,10 +26,10 @@ envsubst < config.yaml.template > /tmp/pod_scenario_config.yaml
 cat /tmp/pod_scenario_config.yaml
 cat /tmp/pod_scenario.yaml
 
-[ -z $JUNIT_TESTCASE ] && JUNIT_TESTCASE="pod-scenarios"
-[ -z $ARTIFACT_DIR ] && ARTIFACT_DIR="/tmp"
+[ -z "$JUNIT_TESTCASE" ] && JUNIT_TESTCASE="pod-scenarios"
+[ -z "$ARTIFACT_DIR" ] && ARTIFACT_DIR="/tmp"
 
-TEST_VERSION=`oc version -o json | jq .openshiftVersion`
+TEST_VERSION=$(oc version -o json | jq -r '.openshiftVersion')
 
 python3.11 $krkn_loc/run_kraken.py --config=/tmp/pod_scenario_config.yaml \
 -o /tmp/report.out \

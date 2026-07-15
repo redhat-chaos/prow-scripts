@@ -34,5 +34,13 @@ cd $krkn_loc
 cat config/memory_hog_config.yaml
 cat $SCENARIO_FILE
 
-python3.11 run_kraken.py --config=config/memory_hog_config.yaml -o /tmp/report.out
+[ -z "$JUNIT_TESTCASE" ] && JUNIT_TESTCASE="memory-hog"
+[ -z "$ARTIFACT_DIR" ] && ARTIFACT_DIR="/tmp"
+TEST_VERSION=$(oc version -o json | jq -r '.openshiftVersion')
+
+python3.11 run_kraken.py --config=config/memory_hog_config.yaml \
+-o /tmp/report.out \
+--junit-testcase "$JUNIT_TESTCASE" \
+--junit-testcase-path "$ARTIFACT_DIR" \
+--junit-testcase-version "$TEST_VERSION"
 

@@ -24,5 +24,14 @@ envsubst < config.yaml.template > /tmp/app_outages_config.yaml
 # Run Kraken
 cat /tmp/app_outages_config.yaml
 cat /tmp/app_outages.yaml
-python3.11 $krkn_loc/run_kraken.py --config=/tmp/app_outages_config.yaml -o /tmp/report.out
+
+[ -z "$JUNIT_TESTCASE" ] && JUNIT_TESTCASE="application-outages"
+[ -z "$ARTIFACT_DIR" ] && ARTIFACT_DIR="/tmp"
+TEST_VERSION=$(oc version -o json | jq -r '.openshiftVersion')
+
+python3.11 $krkn_loc/run_kraken.py --config=/tmp/app_outages_config.yaml \
+-o /tmp/report.out \
+--junit-testcase "$JUNIT_TESTCASE" \
+--junit-testcase-path "$ARTIFACT_DIR" \
+--junit-testcase-version "$TEST_VERSION"
 
